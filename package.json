@@ -1,0 +1,30 @@
+{
+  "name": "jelly-djs",
+  "version": "6.0.0",
+  "description": "An easy discord.js multipurpose npm for memes and fun!",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mistermemer/jelly-djs.git"
+  },
+  "keywords": [
+    "discord.js",
+    "fun",
+    "djsv13",
+    "jelly",
+    "functions"
+  ],
+  "author": "mythicalsouls",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mistermemer/jelly-djs/issues"
+  },
+  "homepage": "https://github.com/mistermemer/jelly-djs#readme",
+  "dependencies": {
+    "aki-api": "^6.0.7",
+    "discord.js": "^13.1.0"
+  }
+}
