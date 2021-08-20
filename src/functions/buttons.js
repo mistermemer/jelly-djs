@@ -25,44 +25,45 @@ module.exports = async(message, client) => {
         button.setEmoji('✔️')
         button.setCustomId('okbtn')
         let btn2 = new Discord.MessageButton()
-        .setStyle('SUCCESS')
-        .setEmoji('❌')
-        .setCustomId('btn2')        
+        btn2.setStyle('SUCCESS')
+        btn2.setEmoji('❌')
+        btn2.setCustomId('btn2')        
         let btn3 = new Discord.MessageButton()
-        .setStyle('SUCCESS')
-        .setEmoji('❌')
-        .setCustomId('btn3')
+        btn3.setStyle('SUCCESS')
+        btn3.setEmoji('❌')
+        btn3.setCustomId('btn3')
         let btn4 = new Discord.MessageButton()
-        .setStyle('SUCCESS')
-        .setEmoji('❌')
-        .setCustomId('btn4')
+        btn4.setStyle('SUCCESS')
+        btn4.setEmoji('❌')
+        btn4.setCustomId('btn4')
         let btn5 = new Discord.MessageButton()
-        .setStyle('SUCCESS')
-        .setEmoji('❌')
-        .setCustomId('btn5')
+        btn5.setStyle('SUCCESS')
+        btn5.setEmoji('❌')
+        btn5.setCustomId('btn5')
         let btn6 = new Discord.MessageButton()
-        .setStyle('SUCESS')
-        .setEmoji('❌')
-        .setCustomId('btn6')
+        btn6.setStyle('SUCCESS')
+        btn6.setEmoji('❌')
+        btn6.setCustomId('btn6')
         let arr = [];
-        arr.push(button, btn2, btn3, btn4, btn5, btn6)
-        let array = shuffle(arr);
+
         
 
-        let row = new Discord.MessageActionRow();
-        row.addComponents(button)
+        let row1 = new Discord.MessageActionRow();
+        row1.addComponents(btn4, btn5, btn6)
+        let row2 = new Discord.MessageActionRow();
+        row2.addComponents(btn2, button, btn3)
         let msg = await message.channel.send({
             embeds: [
                 new Discord.MessageEmbed()
                 .setTitle(`Click the button!`)
                 .setColor('RANDOM')
                 .setDescription(`Click it fast!!`)
-            ], components: [row]})
+            ], components: [row1, row2]})
 
-            const filter = (interaction) => interaction.customId === 'button' && interaction.user.id === message.author.id;
+            const filter = (interaction) => interaction.customId === 'okbtn' && interaction.user.id === message.author.id;
             const collector = msg.createMessageComponentCollector({ filter, time: 40000 });
             collector.on('collect', async (i) => {
-            let time1 = msg.createdTimestamp - i.createdTimestamp;
+            let time1 = i.createdTimestamp - msg.createdTimestamp;
             msg.channel.send(`Wow you clicked the button in ${time1}ms!`)
             
             })
