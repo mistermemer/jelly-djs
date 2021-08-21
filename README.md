@@ -1,5 +1,5 @@
 # JELLY-DJS 
-### jelly-djs is a fun module with discord.js v13 support. For extra support you can join our discord server with this link - 
+### jelly-djs is a fun module with discord.js v13 support. For extra support you can join our discord server with this link - [DISCORD](https://discord.gg/YhpFXWwh7F)
 #### Akinator Command - 
 ```js
 const jelly = require('jelly-djs')
