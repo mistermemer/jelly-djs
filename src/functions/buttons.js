@@ -45,24 +45,15 @@ module.exports = async(message, client) => {
         btn6.setEmoji('❌')
         btn6.setCustomId('btn6')
         let arr = [];
-        arr.push(button, btn2, btn3, btn4, btn5, btn6);
-        let array = shuffle(arr);
+
 
 
         
 
         let row1 = new Discord.MessageActionRow();
-        let arow1 = array.slice(0, 3)
-        arow1.forEach((g) => {
-        row1.addComponents(g)
-        })
+        row1.addComponents(btn2, btn3, button)
         let row2 = new Discord.MessageActionRow();
-        let arow2 = array.slice(3, 6);
-        arow2.forEach((i) => {
-
-
-        row2.addComponents(i)
-        })
+        row2.addComponents(btn6, btn5, btn4)
         row2.addComponents(array[array.length - 1])
         let msg = await message.channel.send({
             embeds: [
