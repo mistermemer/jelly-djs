@@ -47,15 +47,15 @@ module.exports = async(message, client) => {
         let btn7 = new Discord.MessageButton()
         btn7.setStyle('SUCCESS')
         btn7.setEmoji('❌')
-        btn7.setCustomId('btn4')
+        btn7.setCustomId('btn7')
         let btn8 = new Discord.MessageButton()
         btn8.setStyle('SUCCESS')
         btn8.setEmoji('❌')
-        btn8.setCustomId('btn5')
+        btn8.setCustomId('btn8')
         let btn9 = new Discord.MessageButton()
         btn9.setStyle('SUCCESS')
         btn9.setEmoji('❌')
-        btn9.setCustomId('btn6')
+        btn9.setCustomId('btn9')
         let arr = [];
         arr.push(button, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
         let array = shuffle(arr);
