@@ -4,10 +4,10 @@ function randomNum(min, max) {
 let results = '';
 const Discord = require('discord.js');
 module.exports = async (message, client, options) => {
-    if (!options) options = {
-        resultEmbed = true
+    if (!options) {
+        let emb = true
     }
-    let emb = options.resultEmbed;
+    emb = options.resultEmbed;
     let rol1 = randomNum(6, 25);
     let rol2 = randomNum(6, 25);
 
