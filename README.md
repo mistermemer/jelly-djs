@@ -6,7 +6,7 @@
 
 
 - [DISCORD](https://discord.gg/YhpFXWwh7F)
-- [DOCUMENTATION](https://npm.jellyop.ga)
+- [DOCUMENTATION](https://jelly.js.org)
 
 
 

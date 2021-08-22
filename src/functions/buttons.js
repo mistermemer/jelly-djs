@@ -44,16 +44,34 @@ module.exports = async(message, client) => {
         btn6.setStyle('SUCCESS')
         btn6.setEmoji('❌')
         btn6.setCustomId('btn6')
+        let btn7 = new Discord.MessageButton()
+        btn7.setStyle('SUCCESS')
+        btn7.setEmoji('❌')
+        btn7.setCustomId('btn4')
+        let btn8 = new Discord.MessageButton()
+        btn8.setStyle('SUCCESS')
+        btn8.setEmoji('❌')
+        btn8.setCustomId('btn5')
+        let btn9 = new Discord.MessageButton()
+        btn9.setStyle('SUCCESS')
+        btn9.setEmoji('❌')
+        btn9.setCustomId('btn6')
         let arr = [];
+        arr.push(button, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9)
+        let array = shuffle(arr);
+
 
 
 
         
 
         let row1 = new Discord.MessageActionRow();
-        row1.addComponents(btn2, btn3, button)
+        row1.addComponents(array.slice(0, 3))
         let row2 = new Discord.MessageActionRow();
-        row2.addComponents(btn6, btn5, btn4)
+        row2.addComponents(array.slice(3, 6))
+        let row3 = new Discord.MessageActionRow();
+        row3.addComponents(array.slice(6, 9))
+
         row2.addComponents(array[array.length - 1])
         let msg = await message.channel.send({
             embeds: [
