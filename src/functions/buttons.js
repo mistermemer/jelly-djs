@@ -1,23 +1,23 @@
 const Discord = require('discord.js');
 function shuffle(array) {
-    var currentIndex = array.length,  randomIndex;
-  
+    var currentIndex = array.length, randomIndex;
+
     // While there remain elements to shuffle...
     while (currentIndex != 0) {
-  
-      // Pick a remaining element...
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      currentIndex--;
-  
-      // And swap it with the current element.
-      [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
-    }
-  
-    return array;
-  }
 
-module.exports = async(message, client) => {
+        // Pick a remaining element...
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex--;
+
+        // And swap it with the current element.
+        [array[currentIndex], array[randomIndex]] = [
+            array[randomIndex], array[currentIndex]];
+    }
+
+    return array;
+}
+
+module.exports = async (message, client) => {
     try {
 
         let button = new Discord.MessageButton()
@@ -27,7 +27,7 @@ module.exports = async(message, client) => {
         let btn2 = new Discord.MessageButton()
         btn2.setStyle('SUCCESS')
         btn2.setEmoji('❌')
-        btn2.setCustomId('btn2')        
+        btn2.setCustomId('btn2')
         let btn3 = new Discord.MessageButton()
         btn3.setStyle('SUCCESS')
         btn3.setEmoji('❌')
@@ -63,7 +63,7 @@ module.exports = async(message, client) => {
 
 
 
-        
+
 
         let row1 = new Discord.MessageActionRow();
         row1.addComponents(array.slice(0, 3))
@@ -76,19 +76,28 @@ module.exports = async(message, client) => {
         let msg = await message.channel.send({
             embeds: [
                 new Discord.MessageEmbed()
-                .setTitle(`Click the button!`)
-                .setColor('RANDOM')
-                .setDescription(`Click it fast!!`)
-            ], components: [row1, row2]})
+                    .setTitle(`Click the button!`)
+                    .setColor('RANDOM')
+                    .setDescription(`Click it fast!!`)
+            ], components: [row1, row2, row3]
+        })
 
-            const filter = (interaction) => interaction.customId === 'okbtn' && interaction.user.id === message.author.id;
-            const collector = msg.createMessageComponentCollector({ filter, time: 40000 });
-            collector.on('collect', async (i) => {
+        const filter = (interaction) => interaction.customId === 'okbtn' && interaction.user.id === message.author.id;
+        const collector = msg.createMessageComponentCollector({ filter, time: 40000 });
+        collector.on('collect', async (i) => {
             let time1 = i.createdTimestamp - msg.createdTimestamp;
-            msg.channel.send(`Wow you clicked the button in ${time1}ms!`)
-            
+            i.reply({
+                embeds: [
+                    new Discord.MessageEmbed()
+                        .setTitle(`Click Complete`)
+                        .setDescription(`You have succesfully clicked the button`)
+                        .addField(`Time Taken`, `**${time1}ms**\n**${time1 / 1000}s**`)
+                ],
+                ephemeral: true
             })
+
+        })
     } catch (e) {
-console.log(`Jelly-Djs Error: ${e}`)
+        console.log(`Jelly-Djs Error: ${e}`)
     }
 }

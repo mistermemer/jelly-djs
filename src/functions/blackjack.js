@@ -575,9 +575,10 @@ module.exports = async (message, client, options) => {
             drank: dealerrank,
             demoji: dealeremoji
         }
+        
 
         return FINALRESULTS
     } catch (e) {
-        console.log(`[DISCORD_BLACKJACK]: ${e.message}`)
+        console.log(`${e.message}`)
     }
 }
