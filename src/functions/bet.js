@@ -54,7 +54,7 @@ module.exports = async (message, client, options) => {
     }
 
     let final = {
-        outpout = result,
+        outpout: result,
     }
     return final;
 
