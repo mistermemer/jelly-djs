@@ -1,6 +1,6 @@
 {
   "name": "jelly-djs",
-  "version": "6.4.0",
+  "version": "6.4.5",
   "description": "An easy discord.js multipurpose npm for memes and fun!",
   "main": "index.js",
   "scripts": {

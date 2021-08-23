@@ -7,7 +7,7 @@ this.mongoURL = mongoURL;
     
     
     async set(key, value) {
-        
+        if(!key || !value) throw new Error('Jelly-Djs Error: Please provided a key or value')
         let data = new Database(this.mongoURL);
         data.set(key, value);
         
@@ -18,7 +18,7 @@ this.mongoURL = mongoURL;
         return value;
     }
     async add(key, value) {
-        let data = new Database(this.mongoURL);
+
         if(!key || !value) throw new Error('JElly-djs Error: Provide a key or value');
         let m = await data.fetch(key) || 0;
         if(typeof m !== 'number') throw new Error(`JElly-djs Error: Existing value must be a number, got ${typeof m}`);
@@ -36,7 +36,7 @@ this.mongoURL = mongoURL;
         if(typeof m !== 'number') throw new Error(`JElly-djs Error: Existing value must be a number, got ${typeof m}`);
         if(typeof value !== 'number') throw new Error('JElly-djs Error: Value must be a number!');
 
-        let data = new Database(this.mongoURL);
+
         data.subtract(key, value);
     }
     async push(key, value) {
@@ -52,7 +52,8 @@ data.push(key, value);
         let m = await data.fetch(key) || [];
         if(typeof m !== 'array') throw new Error(`JElly-djs Error: Existing value must be an array, got ${typeof m}`);
 data.pull(key, value);
-    }    
+    }
+        
     
 }
 
