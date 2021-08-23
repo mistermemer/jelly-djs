@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # JELLY-DJS 
 
 ### jelly-djs is a fun module with discord.js v13 support. For extra support you can join our discord.
@@ -11,6 +11,7 @@
 
 
 ## FUNCTIONs - 
+ - [BUTTON CALCULATOR](https://jelly.js.org/btncalc)(ADVANCED CLCULATOR WITH BUTTONS!)
  - [TICTACTOE](https://jelly.js.org/tictactoe)(wITH BUTTONS)
  - [BLACKJACK](https://jelly.js.org/blackjack)(WITH CUSTOM WIN MESSAGE AND WIN CASES)
  - [MEME](https://jelly.js.org/meme)(FROM REDDIT)

@@ -218,233 +218,230 @@ module.exports = async (message, client) => {
 	const ac = new MessageButton()
 		.setLabel('AC')
 		.setCustomId(calculator_clear)
-		.setStyle('red');
+		.setStyle('DANGER');
 	const e1 = new MessageButton()
 		.setLabel('(')
 		.setCustomId(calculator_e1)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const e2 = new MessageButton()
 		.setLabel(')')
 		.setCustomId(calculator_e2)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const uppercase = new MessageButton()
 		.setLabel('^')
 		.setCustomId(calculator_uppercase)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const seven = new MessageButton()
 		.setLabel('7️')
 		.setCustomId(calculator_7)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const eight = new MessageButton()
 		.setLabel('8️')
 		.setCustomId(calculator_8)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const nine = new MessageButton()
 		.setLabel('9️')
 		.setCustomId(calculator_9)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const slash = new MessageButton()
 		.setLabel('÷')
 		.setCustomId(calculator_devide)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const four = new MessageButton()
 		.setLabel('4️')
 		.setCustomId(calculator_4)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const five = new MessageButton()
 		.setLabel('5️')
 		.setCustomId(calculator_5)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const six = new MessageButton()
 		.setLabel('6️')
 		.setCustomId(calculator_6)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const star = new MessageButton()
 		.setLabel('x')
 		.setCustomId(calculator_star)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const one = new MessageButton()
 		.setLabel('1️')
 		.setCustomId(calculator_1)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const two = new MessageButton()
 		.setLabel('2️')
 		.setCustomId(calculator_2)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const three = new MessageButton()
 		.setLabel('3️')
 		.setCustomId(calculator_3)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const minus = new MessageButton()
 		.setLabel('-')
 		.setCustomId(calculator_minus)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const zero = new MessageButton()
 		.setLabel('0️')
 		.setCustomId(calculator_0)
-		.setStyle('gray');
+		.setStyle('SECONDARY');
 	const dot = new MessageButton()
 		.setLabel('.')
 		.setCustomId(calculator_dot)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const equal = new MessageButton()
 		.setLabel('=')
 		.setCustomId(calculator_equal)
-		.setStyle('green');
+		.setStyle('SUCCESS');
 	const plus = new MessageButton()
 		.setLabel('+')
 		.setCustomId(calculator_plus)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 	const backspace = new MessageButton()
 		.setLabel('⌫')
 		.setCustomId(calculator_backspace)
-		.setStyle('red');
+		.setStyle('DANGER');
 	const destroy = new MessageButton()
 		.setLabel('DC')
 		.setCustomId(calc_irrc)
-		.setStyle('red');
+		.setStyle('DANGER');
 	const empty1 = new MessageButton()
 		.setLabel('\u200b')
 		.setCustomId(empty_1)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const empty2 = new MessageButton()
 		.setLabel('\u200b')
 		.setCustomId(empty_2)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const percent = new MessageButton()
 		.setLabel('%')
 		.setCustomId(calc_percent)
-		.setStyle('blurple');
+		.setStyle('PRIMARY');
 
 	// Lock
 	const qac = new MessageButton()
 		.setLabel('AC')
 		.setCustomId(calculator_clear)
-		.setStyle('red')
+		.setStyle('DANGER')
 		.setDisabled();
 	const qe1 = new MessageButton()
 		.setLabel('(')
 		.setCustomId(calculator_e1)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qe2 = new MessageButton()
 		.setLabel(')')
 		.setCustomId(calculator_e2)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const quppercase = new MessageButton()
 		.setLabel('^')
 		.setCustomId(calculator_uppercase)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qseven = new MessageButton()
 		.setLabel('7️')
 		.setCustomId(calculator_7)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qeight = new MessageButton()
 		.setLabel('8️')
 		.setCustomId(calculator_8)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qnine = new MessageButton()
 		.setLabel('9️')
 		.setCustomId(calculator_9)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qslash = new MessageButton()
 		.setLabel('÷')
 		.setCustomId(calculator_devide)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qfour = new MessageButton()
 		.setLabel('4️')
 		.setCustomId(calculator_4)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qfive = new MessageButton()
 		.setLabel('5️')
 		.setCustomId(calculator_5)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qsix = new MessageButton()
 		.setLabel('6️')
 		.setCustomId(calculator_6)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qstar = new MessageButton()
 		.setLabel('x')
 		.setCustomId(calculator_star)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qone = new MessageButton()
 		.setLabel('1️')
 		.setCustomId(calculator_1)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qtwo = new MessageButton()
 		.setLabel('2️')
 		.setCustomId(calculator_2)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qthree = new MessageButton()
 		.setLabel('3️')
 		.setCustomId(calculator_3)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qminus = new MessageButton()
 		.setLabel('-')
 		.setCustomId(calculator_minus)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qzero = new MessageButton()
 		.setLabel('0️')
 		.setCustomId(calculator_0)
-		.setStyle('gray')
+		.setStyle('SECONDARY')
 		.setDisabled();
 	const qdot = new MessageButton()
 		.setLabel('.')
 		.setCustomId(calculator_dot)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qequal = new MessageButton()
 		.setLabel('=')
 		.setCustomId(calculator_equal)
-		.setStyle('green')
+		.setStyle('SUCCESS')
 		.setDisabled();
 	const qplus = new MessageButton()
 		.setLabel('+')
 		.setCustomId(calculator_plus)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 	const qbackspace = new MessageButton()
 		.setLabel('⌫')
 		.setCustomId(calculator_backspace)
-		.setStyle('red')
+		.setStyle('DANGER')
 		.setDisabled();
 	const qdestroy = new MessageButton()
 		.setLabel('DC')
 		.setCustomId(calc_irrc)
-		.setStyle('red')
+		.setStyle('DANGER')
 		.setDisabled();
 	const qpercent = new MessageButton()
 		.setLabel('%')
 		.setCustomId(calc_percent)
-		.setStyle('blurple')
+		.setStyle('PRIMARY')
 		.setDisabled();
 
-	// ----------------------------------------------------------------------
-	const embed = new Discord.MessageEmbed()
-		.setTitle('Button Calculator')
-		.setDescription(stringify)
-		.setColor('RANDOM')
 
 
-	options.message.inlineReply(embed).then(async (msg) => {
+
+
+	message.reply({content: `${stringify}`,}).then(async (msg) => {
 		msg.edit({
-			embeds: [embed],
+			content: `${stringify}`,
 			components: [
 				{
 					type: 1,
@@ -469,13 +466,10 @@ module.exports = async (message, client) => {
 			],
 		});
 		async function edit() {
-			const _embed = new Discord.MessageEmbed()
-				.setTitle('Button Calc')
-				.setDescription(stringify)
-				.setColor('RANDOM')
+
 
 			msg.edit({
-				embeds: [_embed],
+				content: `${stringify}`,
 				components: [
 					{
 						type: 1,
@@ -501,14 +495,11 @@ module.exports = async (message, client) => {
 			});
 		}
 		async function lock() {
-			const _embed = new Discord.MessageEmbed()
-				.setTitle('Button Calculator')
-				.setColor('RANDOM')
-				.setDescription(stringify)
+
 
 
 			msg.edit({
-				embed: _embed,
+				content: `${stringify}`,
 				components: [
 					{
 						type: 1,
@@ -534,12 +525,15 @@ module.exports = async (message, client) => {
 			});
 		}
 let filter = (i) => i.user.id === message.author.id;
-		const calc = msg.createMessageComponentCollector({ filter, time: 100000 })
+		const calc = msg.createMessageComponentCollector({
+			filter, 
+			time: 100000
+		})
 
 		calc.on('collect', async (btn) => {
 
 
-			switch (btn.csutomId) {
+			switch (btn.customId) {
 			case calculator_0:
 				str += '0';
 				stringify = '```\n' + str + '\n```';
@@ -685,5 +679,11 @@ let filter = (i) => i.user.id === message.author.id;
 				lock();
 			}
 		});
+		calc.on('end', async(i) => {
+			msg.edit('Calculator Has been disabled due to timeout')
+		}
+			
+		
+		);
 	});
 };
