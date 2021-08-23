@@ -1,6 +1,6 @@
 {
   "name": "jelly-djs",
-  "version": "6.5.0",
+  "version": "6.5.1",
   "description": "An easy discord.js multipurpose npm for memes and fun!",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
     "aki-api": "^6.0.7",
     "discord.js": "^13.1.0",
     "got": "^11.8.2",
-    "quickmongo": "^3.0.2"
+    "quickmongo": "^3.0.2",
+    "shuffle-array": "^1.0.1"
   }
 }
