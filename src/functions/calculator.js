@@ -1,7 +1,7 @@
 const math = require('mathjs');
 const Discord = require('discord.js');
 const { MessageButton } = require('discord.js');
-const { getRandomString } = require('..../');
+const { getRandomString } = require('../../utils/functions');
 
 module.exports = async (message, client) => {
     let options = {

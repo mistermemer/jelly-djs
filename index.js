@@ -7,4 +7,5 @@ module.exports.bet = require('./src/functions/bet')
 module.exports.covid = require('./src/functions/covid');
 module.exports.tictactoe = require('./src/functions/tictactoe')
 module.exports.Database = require('./src/classes/database');
+module.exports.calculator = require('./src/functions/calculator');
 
