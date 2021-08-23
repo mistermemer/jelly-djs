@@ -6,6 +6,7 @@ this.mongoURL = mongoURL;
     }
     
     async set(key, value) {
+        console.log(this.mongoURL)
         let data = new Database(this.mongoURL);
         data.set(key, value);
     }
