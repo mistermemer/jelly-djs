@@ -27,6 +27,7 @@
     "aki-api": "^6.0.7",
     "discord.js": "^13.1.0",
     "got": "^11.8.2",
+    "mathjs": "^9.4.4",
     "quickmongo": "^3.0.2",
     "shuffle-array": "^1.0.1"
   }
