@@ -169,6 +169,29 @@ module.exports = async (message, client, options) => {
         let dvalue = dealerdeck[0].value + dealerdeck[1].value
         let usertag = message.author.tag
         let avatar = message.author.displayAvatarURL()
+let hitbutton = new Discord.MessageButton()
+hitbutton.setStyle('SUCCESS')
+hitbutton.setLabel('Hit')
+hitbutton.setCustomId('hitbutton')
+let splitbtn = new Discord.MessageButton()
+splitbtn.setStyle('PRIMARY')
+splitbtn.setLabel('Split')
+splitbtn.setCustomId('splitbtn')
+let sbutton = new Discord.MessageButton()
+sbutton.setStyle('PRIMARY')
+sbutton.setLabel('Stand')
+sbutton.setCustomId('sbutton')
+let dbtn = new Discord.MessageButton()
+dbtn.setStyle('PRIMARY')
+dbtn.setLabel('Double Down')
+dbrn.setCustomId('dd')
+let endbutton = new Discord.MessageButton()
+endbutton.setStyle('DANGER')
+endbutton.setLabel('End')
+endbutton.setCustomId('endbutton')
+let row = new Discord.MessageActionRow()
+row.addComponents(hitbutton, sbutton, endbutton);
+
 
         if (normalembed == false) {
             normalembed = new Discord.MessageEmbed()
@@ -177,8 +200,7 @@ module.exports = async (message, client, options) => {
                 .addField(`Your Hand`, `Cards: [\`${yourcontent.join("\`](https://google.com) [\`")}\`](https://google.com)\nTotal: \`${addco}${value}\``, true)
                 .addField(`${client.user.username}'s Hand`, `Cards: [\`${dealerdeck[0].emoji} ${dealerdeck[0].rank}\`](https://google.com) \` ? \`\nTotal: \` ? \``, true)
                 .setTitle(`Blackjack Game`)
-                .setFooter("Type E or End to stop the game")
-        } else {
+                        } else {
             normalembed.fields[0].value = normalembed.fields[0].value.replace(`{yourcontent}`, `[\`${yourcontent.join("\`](https://google.com) [\`")}\`](https://google.com)`).replace("{yvalue}", `${addco}${value}`)
             normalembed.fields[1].value = normalembed.fields[1].value.replace(`{dcontent}`, `[\`${dealerdeck[0].emoji} ${dealerdeck[0].rank}\`](https://google.com)   \` ? \``).replace("{dvalue}", `?`)
             copiedEmbed.content = `[\`${yourcontent.join("\`](https://google.com) [\`")}\`](https://google.com)`
@@ -219,19 +241,19 @@ module.exports = async (message, client, options) => {
             .setDescription(`**${message.author.username}, your Game has Ended due to 30 seconds of Inactivity.**`)
             .setColor("RANDOM")
 
-        let normalcontent = `Type \`h\` to draw a card or type \`s\` to stand.`
-        let doubledown = `Type \`h\` to draw a card, type \`s\` to stand or type \`d\` to double down.`
-        let split = `Type \`h\` to draw a card, type \`s\` to stand or \`split\` to split`
+        let normalcontent = `Click the below buttons`
+        let doubledown = `Click the below buttons`
+        let split = `Click The below buttons`
         let content = normalcontent
 
-        let answers1 = ["h", "hit", "hi", "e", "en", "end", "s", "stand", "st", "sta", "stan"] // normalcontent
-        let answers2 = ["h", "hit", "hi", "e", "en", "end", "s", "stand", "st", "sta", "stan", "d", "dd", "double-down", "double down"] // doubledown
-        let answers3 = ["h", "hit", "hi", "e", "en", "end", "s", "stand", "st", "sta", "stan", "sp", "split", "spl", "spli"] // split
+        let answers1 = ["hitbutton", "sbutton", "endbutton"] // normalcontent
+        let answers2 = ['hitbutton', 'sbutton', 'endbutton', 'dd'] // doubledown
+        let answers3 = ["hitbutton", "sbutton", "endbutton", "splitbtn"] // split
 
 
-        let filter1 = m => m.author.id == message.author.id && answers1.includes(m.content.toLowerCase()) // answers1
-        let filter2 = m => m.author.id == message.author.id && answers2.includes(m.content.toLowerCase()) // answers2
-        let filter3 = m => m.author.id == message.author.id && answers3.includes(m.content.toLowerCase()) // answers3
+        let filter1 = (m) => m.author.id == message.author.id && answers1.includes(m.customId.toLowerCase()) // answers1
+        let filter2 = (m) => m.author.id == message.author.id && answers2.includes(m.customId.toLowerCase()) // answers2
+        let filter3 = (m) => m.author.id == message.author.id && answers3.includes(m.customId.toLowerCase()) // answers3
         let filter = filter1
 
         let doubledtrue = false
@@ -259,26 +281,31 @@ module.exports = async (message, client, options) => {
             if (value == 9 || (value == 10 || value == 11 && dealerdeck[1].value < 10)) {
                 content = doubledown
                 filter = filter2
+row = new Discord.MessageActionRow()
+Row.addComponents(hitbutton, sbutton, splitbtn, endbutton)
+
             } else if (yourdeck[0].rank == yourdeck[1].rank) {
                 content = split
                 filter = filter3
+row = new Discord.MessageActionRow()
+row.addComponents(hitbutton, sbutton, dbtn, endbutton)
             }
         }
 
         if (RESULTS == "Unknown") {
-            let ori = message.channel.send({ content: content, embeds: [normalembed] })
+            let ori = message.channel.send({ content: content, embeds: [normalembed], components: [row]})
             normalembed.fields[0].value = normalembed.fields[0].value.replace(copiedEmbed.value, `{yvalue}`)
-            await message.channel.awaitMessages({
+           let collector =  await ori.createMessageComponentCollector({
                 filter,
                 max: 1,
                 time: 30000
-                 }).then(
-                async allresponses => {
+                 })
+collector.on('collect', async (allresponses) => {
                     if (!allresponses.size) {
                         responsenow = "timeout"
                     } else {
-                        let theanswer = String(allresponses.first()).toLowerCase()
-                        if (["h", "hit", "hi"].includes(theanswer)) {
+                        let theanswer = String(allresponses.customId)
+                        if (["hitbutton"].includes(theanswer)) {
                             let dealCard = NEWDECKS[startAt - 1]
                             yourdeck.push(dealCard)
                             if (dealCard.rank == "A") {
@@ -330,22 +357,26 @@ module.exports = async (message, client, options) => {
                                     copiedEmbed.content = `[\`${yourcontent.join("`](https://google.com)   [`")}\`](https://google.com)`
                                     copiedEmbed.value = `${addco}${value}`
                                 }
-                                ori = message.channel.send({ content: normalcontent, embeds: [normalembed] })
+ori.edit({components: []})
+                                ori = await message.channel.send({ content: normalcontent, embeds: [normalembed], components: [row]})
                                 normalembed.fields[0].value = normalembed.fields[0].value.replace(copiedEmbed.value, `{yvalue}`)
                             }
                             startAt++
-                        } else if (["e", "en", "end"].includes(theanswer)) {
+                        } else if (["endbutton"].includes(theanswer)) {
                             responsenow = "cancel"
-                        } else if (["s", "st", "sta", "stan", "stand"].includes(theanswer)) {
+                        } else if (['sbutton'].includes(theanswer)) {
                             responsenow = "s"
-                        } else if (["dd", "double-down", "double down", "d"].includes(theanswer)) {
+                        } else if (["dd"].includes(theanswer)) {
                             responsenow = "dd"
-                        } else if (["sp", "spl", "spli", "split"].includes(theanswer)) {
+                        } else if (['splitbtn'].includes(theanswer)) {
                             responsenow = "split"
                         }
                     }
+collector.stop()
                 }
             )
+collector.on('end', async(i) => {
+})
         }
 
         while (responsenow == "dd") {
@@ -379,23 +410,24 @@ module.exports = async (message, client, options) => {
                 copiedEmbed.content = `[\`${yourcontent.join("`](https://google.com)   [`")}\`](https://google.com)`
                 copiedEmbed.value = `${addco}${value}`
             }
-            ori = message.channel.send({ content: normalcontent, embeds: [normalembed] })
+            ori = message.channel.send({ content: normalcontent, embeds: [normalembed], components: [row]})
             normalembed.fields[0].value = normalembed.fields[0].value.replace(copiedEmbed.value, `{yvalue}`)
             responsenow = "h"
         }
 
         while (responsenow == "h") {
 
-            await message.channel.awaitMessages({
+           let = collector1 = await ori.createMessageComponentCollector({
                 filter1,
                 max: 1,
                 time: 30000 
-            }).then(async allresponses => {
+            })
+collector1.on('collect', async allresponses => {
                 if (!allresponses.size) {
                     responsenow = "timeout"
                 } else {
-                    let theanswer = String(allresponses.first()).toLowerCase()
-                    if (["h", "hi", "hit"].includes(theanswer)) {
+                    let theanswer = String(allresponses.customId)
+                    if (["hitbutton"].includes(theanswer)) {
                         let dealCard = NEWDECKS[startAt - 1]
                         yourdeck.push(dealCard)
                         if (dealCard.rank == "A") {
@@ -446,17 +478,21 @@ module.exports = async (message, client, options) => {
                                 copiedEmbed.content = `[\`${yourcontent.join("`](https://google.com)   [`")}\`](https://google.com)`
                                 copiedEmbed.value = `${addco}${value}`
                             }
-                            ori = message.channel.send({ content: normalcontent, embeds: [normalembed] })
+ori.edit({components: []})
+                            ori = message.channel.send({ content: normalcontent, embeds: [normalembed], components: [row]})
                             normalembed.fields[0].value = normalembed.fields[0].value.replace(copiedEmbed.value, `{yvalue}`)
                         }
                         startAt++
-                    } else if (["e", "end", "en"].includes(theanswer)) {
+                    } else if (["endbutton"].includes(theanswer)) {
                         responsenow = "cancel"
                     } else {
                         responsenow = "s"
                     }
+collector.stop()
                 }
             })
+collector1.on('end', async(i) => {
+})
 
         }
 
